@@ -18,14 +18,13 @@ void main() {
   });
 
   test("devrait appeler [EolienneRepository.ajouterEolienne]", () async {
-    final idUtilisateur = 0;
     final numeroSerie = "";
     when(
-      () => repository.ajouterEolienne(idUtilisateur,numeroSerie),
+      () => repository.ajouterEolienne(numeroSerie),
     ).thenAnswer((_) async => Succes(true));
-    await ajouterEolienne({"idUtilisateur":idUtilisateur,"numeroSerie": numeroSerie});
+    await ajouterEolienne(numeroSerie);
 
-    verify(() => repository.ajouterEolienne(idUtilisateur,numeroSerie));
+    verify(() => repository.ajouterEolienne(numeroSerie));
   });
 
   test("devrait appeler [EolienneRepository.supprimerEolienne]", () async {
@@ -33,7 +32,7 @@ void main() {
     when(
       () => repository.supprimerEolienne(idEolienne),
     ).thenAnswer((_) async => Succes(true));
-    await supprimerEolienne({"idEolienne": idEolienne});
+    await supprimerEolienne(idEolienne);
 
     verify(() => repository.supprimerEolienne(idEolienne));
   });

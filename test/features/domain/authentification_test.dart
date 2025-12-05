@@ -26,7 +26,7 @@ void main() {
       (_) async => Succes(true),
     ); // Definition du comportement simuler de EolienneRepository.authentifier
 
-    await authentifier({"email": email, "motDePasse": motDePasse});
+    await authentifier(email,motDePasse);
 
     verify(() => repository.authentifier(email, motDePasse));
   });
@@ -40,7 +40,7 @@ void main() {
       (_) async => Succes(true),
     ); // Definition du comportement simuler de EolienneRepository.authentifier
 
-    await enregistrer({"email": email,"nom":nom,"prenom":prenom, "motDePasse": motDePasse});
+    await enregistrer(email,nom,prenom,motDePasse);
 
     verify(() => repository.enregistrer(email,nom,prenom, motDePasse));
   });

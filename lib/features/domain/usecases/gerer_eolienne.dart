@@ -7,10 +7,8 @@ class AjouterEolienne {
   AjouterEolienne({required this.repository});
 
   @override
-  FutureResultat call(Map<String, Object> params) {
-    final idUtilisateur = params["idUtilisateur"]! as int;
-    final numeroSerie = params["numeroSerie"]! as String;
-    return repository.ajouterEolienne(idUtilisateur,numeroSerie);
+  FutureResultat call(String numeroSerie) {
+    return repository.ajouterEolienne(numeroSerie);
   }
 }
 
@@ -20,8 +18,7 @@ class SupprimerEolienne {
   SupprimerEolienne({required this.repository});
 
   @override
-  FutureResultat call(Map<String, int> params) {
-    final idEolienne = params["idEolienne"]!;
+  FutureResultat call(int idEolienne) {
     return repository.supprimerEolienne(idEolienne);
   }
 }

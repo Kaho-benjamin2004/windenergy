@@ -7,9 +7,7 @@ class Authentifier {
   Authentifier({required this.repository});
 
   @override
-  FutureResultat call(Map<String, String> params) {
-    final email = params["email"]!;
-    final motDePasse = params["motDePasse"]!;
+  FutureResultat call(String email, String motDePasse) {
     return repository.authentifier(email, motDePasse);
   }
 }
@@ -21,11 +19,7 @@ class Enregistrer{
   Enregistrer({required this.repository});
 
   @override
-  FutureResultat call(Map<String, String> params) {
-    final email = params["email"]!;
-    final nom = params["nom"]!;
-    final prenom = params["prenom"]!;
-    final motDePasse = params["motDePasse"]!;
+  FutureResultat call(String email,String nom,String prenom, String motDePasse) {
     return repository.enregistrer(email,nom,prenom, motDePasse);
   }
 }

@@ -1,5 +1,3 @@
-import 'dart:nativewrappers/_internal/vm/lib/ffi_native_type_patch.dart';
-
 import 'package:equatable/equatable.dart';
 
 class Utilisateur extends Equatable {
@@ -22,22 +20,25 @@ class Utilisateur extends Equatable {
 }
 
 class Eolienne extends Equatable {
+  final int idUtilisateur;
   final String numeroSerie;
   final double vitesseRotation;
   final double puissanceGenere;
   final double orientation;
   final String hashSecurite;
-  final DateTime tempsDerniereMesure;
+  final DateTime? tempsDerniereMesure;
   final bool actif;
+  
 
   Eolienne({
+    this.idUtilisateur = 0,
     this.numeroSerie = "",
     this.vitesseRotation = 0,
     this.puissanceGenere = 0,
     this.orientation = 0,
     this.hashSecurite = "",
     this.actif = true,
-    required this.tempsDerniereMesure
+    this.tempsDerniereMesure,
   });
 
   @override
